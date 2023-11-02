@@ -18,7 +18,7 @@ const Cart = () => {
     if (cartCount > 0) {
       try {
         setprocessing(true);
-        const { id } = await axios.post("/api/route", cartDetails)
+        const { id } = await axios.post("/api/checkout_sessions", cartDetails)
           .then(res => res.data);
         const result = await redirectToCheckout(id);
         if (result?.error) {
